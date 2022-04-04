@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WeatherApplication</string>
+    <string name="enter_city_name">Enter city name</string>
+    <string name="lookup">LookUp</string>
+    <string name="temp_title">Temp:%1d</string>
+    <string name="temp_feels">Feels Like:%1d</string>
+    <string name="error_msg">Something went wrong</string>
+    <string name="empty_city_error">City name can not be empty</string>
+</resources>
