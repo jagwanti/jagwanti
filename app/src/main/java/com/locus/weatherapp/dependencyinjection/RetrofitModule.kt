@@ -21,7 +21,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
-    //http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=5680c10c3ec48251f066e45e935f734f
+
     private val BASE_URL = "http://api.openweathermap.org/data/2.5/forecast/hourly/"
 
     @Singleton
