@@ -4,16 +4,17 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.viewbinding.BuildConfig
-import com.locus.weatherapp.BuildConfig.API_KEY
-import com.locus.weatherapp.NetworkHelper
 import com.locus.weatherapp.model.ForecastData
 import com.locus.weatherapp.model.Resource
 import com.locus.weatherapp.model.Status
 import com.locus.weatherapp.model.WeatherResponse
 import com.locus.weatherapp.repository.MainRepository
+import com.locus.weatherapp.utils.NetworkHelper
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 

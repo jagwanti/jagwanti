@@ -1,9 +1,9 @@
 package com.locus.weatherapp.dependencyinjection
 
 import android.content.Context
-import com.locus.weatherapp.NetworkHelper
 import com.locus.weatherapp.model.api.WeatherAPI
 import com.locus.weatherapp.repository.MainRepository
+import com.locus.weatherapp.utils.NetworkHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,13 +21,15 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
-    private val BASE_URL = "https://pro.openweathermap.org/data/2.5/forecast/hourly/"
+    //http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=5680c10c3ec48251f066e45e935f734f
+    private val BASE_URL = "http://api.openweathermap.org/data/2.5/forecast/hourly/"
 
     @Singleton
     @Provides
-    fun provideWeatherApi(): WeatherAPI = Retrofit.Builder()
+    fun provideWeatherApi(client : OkHttpClient): WeatherAPI = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
         .build()
         .create(WeatherAPI::class.java)
 
@@ -57,6 +59,6 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideNetworkHelper(@ApplicationContext context: Context):NetworkHelper = NetworkHelper(context)
+    fun provideNetworkHelper(@ApplicationContext context: Context): NetworkHelper = NetworkHelper(context)
 
 }

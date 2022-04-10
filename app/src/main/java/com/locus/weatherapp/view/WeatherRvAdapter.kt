@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.locus.weatherapp.R
-import com.locus.weatherapp.Utils
 import com.locus.weatherapp.model.ForecastData
+import com.locus.weatherapp.parseDateString
 import com.locus.weatherapp.viewmodel.CityViewModel
 
 class WeatherRvAdapter (private val dataList:ArrayList<ForecastData>, private val viewModal:CityViewModel): RecyclerView.Adapter<WeatherRvAdapter.WeatherViewHolder>() {
@@ -26,7 +26,7 @@ class WeatherRvAdapter (private val dataList:ArrayList<ForecastData>, private va
         val data = dataList[position]
         holder.weatherTv.text= data.weather.main
         holder.tempTv.text = mContext.resources.getString(R.string.temp_title,data.main.temp)
-        holder.dayTv.text = Utils.parseDateString(data.dt_txt)
+        holder.dayTv.text = parseDateString(data.dt_txt)
         holder.itemView.setOnClickListener{
             viewModal.detailResponse.set(data)
             (mContext as MainActivity).replaceFragments(WeatherDetailFragment::class.java) }
