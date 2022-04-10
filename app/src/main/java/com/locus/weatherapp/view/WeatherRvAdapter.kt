@@ -38,8 +38,8 @@ class WeatherRvAdapter (private val dataList:ArrayList<ForecastData>, private va
 
 
     class WeatherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val weatherTv = itemView.findViewById<TextView>(R.id.weather_tv)
-        val tempTv = itemView.findViewById<TextView>(R.id.temp_tv)
-        val dayTv = itemView.findViewById<TextView>(R.id.day_tv)
+        val weatherTv: TextView = itemView.findViewById(R.id.weather_tv)
+        val tempTv: TextView = itemView.findViewById(R.id.temp_tv)
+        val dayTv: TextView  = itemView.findViewById(R.id.day_tv)
     }
 }

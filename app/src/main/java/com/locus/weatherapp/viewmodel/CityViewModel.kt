@@ -21,7 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CityViewModel @Inject constructor(var repository:MainRepository, var networkHelper: NetworkHelper) : ViewModel() {
     private var job = SupervisorJob()
-    private val ViewModel.viewModelScope : CoroutineScope
+    private val viewModelScope : CoroutineScope
     get() {
         return CoroutineScope(Dispatchers.IO + job )
     }
